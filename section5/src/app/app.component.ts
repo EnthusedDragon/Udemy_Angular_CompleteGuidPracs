@@ -7,22 +7,28 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   serverElements = [];
-  newServerName = '';
-  newServerContent = '';
 
-  onAddServer() {
+  onServerAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
       type: 'server',
-      name: this.newServerName,
-      content: this.newServerContent
+      name: serverData.serverName,
+      content: serverData.serverContent
     });
   }
 
-  onAddBlueprint() {
+  onBlueprintAdded(blueprintData: {blueprintName: string, blueprintContent: string}) {
     this.serverElements.push({
       type: 'blueprint',
-      name: this.newServerName,
-      content: this.newServerContent
+      name: blueprintData.blueprintName,
+      content: blueprintData.blueprintContent
     });
+  }
+
+  onChangeFirst(){
+    this.serverElements[0].name = 'Changed!';
+  }
+
+  onDestroyFirst(){
+    this.serverElements.splice(0,1);
   }
 }
