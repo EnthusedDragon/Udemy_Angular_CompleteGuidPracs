@@ -1,0 +1,3 @@
+<button (click)="onButtonClick()">Display Details</button>
+<p *ngIf="show">Secret Password</p>
+<p *ngFor="let timestamp of buttonClicks; let i = index" [ngStyle]="{backgroundColor: i >= 4 ? 'blue':'transparent'}" [ngClass]="{'white-text': i >= 4}">{{timestamp}}</p>
